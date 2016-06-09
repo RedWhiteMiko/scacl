@@ -1,0 +1,18 @@
+<div ng-repeat="second in seconds">
+  <h1 class="md-title">
+    {{second.q}}
+  </h1>
+  <div layout="row">
+    <md-input-container style="margin-right: 10px;" flex>
+      <label>Please select</label>
+      <md-select ng-model="third" style="width: 100%;">
+        <md-option ng-repeat="value in second.values" value="{{value.value}}">{{value.name}}</md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+</div>
+<div layout="row">
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button ng-href="#/third/{{ingestion}}/{{third}}" class="md-raised md-primary">Next</md-button>
+  </section>
+</div>

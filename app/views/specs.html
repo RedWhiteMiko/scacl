@@ -1,0 +1,67 @@
+<div layout="column" layout-wrap layout-gt-sm="row" max-width: 960px;>
+  <div layout="row">
+    <h1 class="md-title">
+      Estimate your usage
+    </h1>
+  </div>
+  <br />
+  <div ng-if="data.isStream">
+    <md-content>
+      <div layout="row">
+        <div flex="30" style="font-size: 18px;">
+          Message Throughput
+        </div>
+        <md-slider-container flex="70">
+          <span>{{stream.throughput || 0}} Mps</span>
+          <md-slider flex min="10" max="100000" ng-model="stream.throughput" step="5">
+          </md-slider>
+        </md-slider-container>
+      </div>
+      <div layout="row">
+        <div flex="30" style="font-size: 18px;">
+          Custom Code
+        </div>
+        <md-checkbox flex="70" ng-model="stream.isCustomCode">
+          Using Custom Code?
+        </md-checkbox>
+      </div>
+      <div layout="row" ng-if="!stream.isCustomCode">
+        <div flex="30" style="font-size: 18px;">
+          Features
+        </div>
+        <div flex="70">
+          <span>Window size: {{stream.windowSize || 0}}s</span>
+          <md-slider-container>
+            <md-slider flex min="5" max="300" ng-model="stream.windowSize" step="5">
+            </md-slider>
+          </md-slider-container>
+        </div>
+      </div>
+      <div layout="row">
+        <div flex="30" style="font-size: 18px;">
+          Stream Data Store
+        </div>
+        <div flex="70">
+          <div flex="100">
+            <md-slider-container>
+              <span>Read Write Ratio: {{stream.readWriteRatio || 0}}%</span>
+              <md-slider flex min="0" max="100" ng-model="stream.readWriteRatio" step="1">
+              </md-slider>
+            </md-slider-container>
+          </div>
+          <div flex="100">
+            <md-slider-container>
+              <span>Request/Sec: {{stream.reqPerSec || 0}} Rps</span>
+              <md-slider flex min="0" max="100000" ng-model="stream.reqPerSec" step="1">
+              </md-slider>
+            </md-slider-container>
+          </div>
+        </div>
+      </div>
+    </md-content>
+  </div>
+
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button ng-click="saveData();" class="md-raised md-primary">Next</md-button>
+  </section>
+</div>

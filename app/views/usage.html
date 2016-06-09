@@ -1,0 +1,28 @@
+<div layout="column" layout-wrap layout-gt-sm="row">
+  <h1 class="md-title">
+    What are you using
+  </h1>
+  <div flex-xs flex="100">
+    <md-checkbox ng-model="data.isStream">
+      Streaming
+    </md-checkbox>
+  </div>
+  <div flex-xs flex="100">
+    <md-checkbox ng-model="data.isBatch">
+      Batching
+    </md-checkbox>
+  </div>
+  <div flex-xs flex="100">
+    <md-checkbox ng-model="data.isAPI">
+      API
+    </md-checkbox>
+  </div>
+  <div flex-xs flex="100">
+    <md-checkbox ng-model="data.isDatastore">
+      Datastore
+    </md-checkbox>
+  </div>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button ng-href="#/specs/{{data.isStream}}/{{data.isBatch}}/{{data.isAPI}}/{{data.isDatastore}}" class="md-raised md-primary">Next</md-button>
+  </section>
+</div>

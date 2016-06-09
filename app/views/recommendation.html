@@ -1,0 +1,57 @@
+<div layout="column" layout-wrap layout-gt-sm="row" max-width: 960px;>
+  <div layout="row">
+    <h1 class="md-title">
+      Choose Solution
+    </h1>
+  </div>
+
+  <div>
+    Requirement:
+      
+  </div>
+
+
+  <div>
+    <md-radio-group ng-model="data.streamstack" ng-change="">
+      <md-radio-button value="stream1">Kafka + Storm + Cassandra</md-radio-button>
+      <md-radio-button value="stream2">Kafka + Spark Streaming + HBase</md-radio-button>
+    </md-radio-group>
+  </div>
+
+  <div layout="row">
+    <div flex="30">
+      Cluster Name
+    </div>
+    <div flex="70">
+      <input type="text" ng-model="clustername" ng-change="jsonChange()" />
+    </div>
+  </div>
+
+  <div layout="row">
+    <div flex="30">
+      Instances
+    </div>
+    <div flex="70">
+      <input type="text" ng-model="instance" ng-change="jsonChange()" />
+    </div>
+  </div>
+
+  <div layout="row">
+    <div flex="30">
+      Cost
+    </div>
+    <div flex="70">
+      <strong>USD$ {{cost}}</strong>
+    </div>
+  </div>
+
+  <div>
+    <textarea style="width: 100%; height: 300px;">
+      {{marathonjson}}
+    </textarea>
+  </div>
+
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <md-button ng-click="deploy();" class="md-raised md-primary">Deploy</md-button>
+  </section>
+</div>
